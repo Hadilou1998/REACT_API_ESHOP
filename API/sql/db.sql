@@ -29,3 +29,10 @@ CREATE TABLE Products (
     currency VARCHAR(10) NOT NULL,
     id_client INT
 );
+
+--  ------------------------
+--  INSERTION DES DONNÉES
+--  ------------------------
+
+INSERT INTO Clients VALUES
+(NULL, 'Arthur123', '', 'user', '', ''),
