@@ -42,5 +42,8 @@ INSERT INTO Clients VALUES
 (NULL   ,   'Charles789',   'charles0642'   ,   'user'  ,   'charles.debussy@example.com'   ,   '72 Rue de la Liberté'          ,   94500   ,   'Champigny-sur-Marne'   ),
 (NULL   ,   'Djamal135' ,   'djamal0791'    ,   'admin' ,   'djamal.rafour@example.com'     ,   '96 Boulevard Aristide Briand'  ,   92400   ,   'Courbevoie'            ),
 (NULL   ,   'Emilie246' ,   'emilie0630'    ,   'user'  ,   'emilie.mitchell@example.com'   ,   '120 Avenue des Champs-Elysées' ,   75008   ,   'Paris'                 ),
-(NULL   ,   'Fadwa357'  ,   'fadwa0703'     ,   'admin' ,   'fadwa.oussein@example.com'     ,   '144 Rue de la Victoire'        ,   93700   ,   'Drancy'                ),
-(NULL   ,   'Goulam468' ,   'goulam0622'    ,   'user'  ,   'goulam.badoro@example.com'     ,   '168 Boulevard Carnot'          ,   93200   ,   'Saint-Denis'           ),
+(NULL   ,   'Fadwa357'  ,   'fadwa0703'     ,   'admin' ,   'fadwa.oussein@example.com'     ,   '144 Rue de Paris'              ,   95400   ,   'Villiers-le-Bel'       ),
+(NULL   ,   'Goulam468' ,   'goulam0622'    ,   'user'  ,   'goulam.badoro@example.com'     ,   '168 Boulevard Marcel Sembat'   ,   93200   ,   'Saint-Denis'           ),
+(NULL   ,   'Hamida579' ,   'hamida0715'    ,   'admin' ,   'hamida.souef@example.com'      ,   '192 Rue de la Victoire'        ,   93700   ,   'Drancy'                );
+
+INSERT INTO Products VALUES
