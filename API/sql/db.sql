@@ -47,3 +47,14 @@ INSERT INTO Clients VALUES
 (NULL   ,   'Hamida579' ,   'hamida0715'    ,   'admin' ,   'hamida.souef@example.com'      ,   '192 Rue de la Victoire'        ,   93700   ,   'Drancy'                );
 
 INSERT INTO Products VALUES
+(),
+(),
+(),
+(),
+(),
+(),
+(),
+(),
+(),
+(),
+(),
