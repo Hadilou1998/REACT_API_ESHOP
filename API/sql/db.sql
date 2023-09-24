@@ -58,3 +58,8 @@ INSERT INTO Products VALUES
 (),
 (),
 (),
+(),
+(),
+(),
+(),
+();
