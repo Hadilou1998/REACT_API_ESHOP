@@ -18,7 +18,9 @@ CREATE TABLE Clients (
     password VARCHAR(25) NOT NULL,
     role ENUM('admin', 'user') NOT NULL,
     email VARCHAR(50) NOT NULL,
-    adresse VARCHAR(50) NOT NULL
+    adresse VARCHAR(50) NOT NULL,
+    codepostal SMALLINT(5) NOT NULL,
+    ville VARCHAR(75) NOT NULL
 );
 
 CREATE TABLE Products (
@@ -35,4 +37,10 @@ CREATE TABLE Products (
 --  ------------------------
 
 INSERT INTO Clients VALUES
-(NULL, 'Arthur123', '', 'user', '', ''),
+(NULL   ,   'Arthur123' ,   'arthur0654'    ,   'user'  ,   'arthur.rimbaud@example.com'    ,   '24 Boulevard de la Chapelle'   ,   75018   ,   'Paris'                 ),
+(NULL   ,   'Bayane456' ,   'bayane0789'    ,   'admin' ,   'bayane.djebarri@example.com'   ,   '48 Avenue de la Republique'    ,   93300   ,   'Aubervilliers'         ),
+(NULL   ,   'Charles789',   'charles0642'   ,   'user'  ,   'charles.debussy@example.com'   ,   '72 Rue de la Liberté'          ,   94500   ,   'Champigny-sur-Marne'   ),
+(NULL   ,   'Djamal135' ,   'djamal0791'    ,   'admin' ,   'djamal.rafour@example.com'     ,   '96 Boulevard Aristide Briand'  ,   92400   ,   'Courbevoie'            ),
+(NULL   ,   'Emilie246' ,   'emilie0630'    ,   'user'  ,   'emilie.mitchell@example.com'   ,   '120 Avenue des Champs-Elysées' ,   75008   ,   'Paris'                 ),
+(NULL   ,   'Fadwa357'  ,   'fadwa0703'     ,   'admin' ,   'fadwa.oussein@example.com'     ,   '144 Rue de la Victoire'        ,   93700   ,   'Drancy'                ),
+(NULL   ,   'Goulam468' ,   'goulam0622'    ,   'user'  ,   'goulam.badoro@example.com'     ,   '168 Boulevard Carnot'          ,   93200   ,   'Saint-Denis'           ),
