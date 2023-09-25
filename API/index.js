@@ -36,3 +36,8 @@ conn.connect(error => {
     if (error) throw error;
     console.log("Successfully connected to the database.");
 });
+
+// listen for requests
+app.listen(PORT, () => {
+    console.log(`Le serveur est lancé sur le port : ${PORT}`);
+})
