@@ -23,10 +23,16 @@ app.use(bodyParser.json());
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
+// Connection à la BDD
 const conn = mysql.createConnection ({
     host: "localhost",
     user:   "root",
     password:   "hadil",
     database:  "React_API" 
+});
+
+// Se connecter à mysql
+conn.connect(error => {
+    if (error) throw error;
+    console.log("Successfully connected to the database.");
 });
