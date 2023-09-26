@@ -47,7 +47,7 @@ INSERT INTO Clients VALUES
 (NULL   ,   'Hamida579' ,   'hamida0715'    ,   'admin' ,   'hamida.souef@example.com'      ,   '192 Rue de la Victoire'        ,   93700   ,   'Drancy'                );
 
 INSERT INTO Products VALUES
-(NULL   ,   '', 00.00, '', €, 1),
+(NULL   ,   '', 85.00, 'assets/victoria-baskets-blanches-et-bleues-mixtes.jpg', €, 1),
 (NULL   ,   '', 00.00, '', €, 1),
 (NULL   ,   '', 00.00, '', €, 2),
 (NULL   ,   '', 00.00, '', €, 2),
