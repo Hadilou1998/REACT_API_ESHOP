@@ -25,7 +25,8 @@ CREATE TABLE Clients (
 
 CREATE TABLE Products (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    description VARCHAR(255) NOT NULL,
     price FLOAT UNSIGNED NOT NULL,
     link VARCHAR(255) NOT NULL,
     currency VARCHAR(10) NOT NULL,
@@ -47,9 +48,9 @@ INSERT INTO Clients VALUES
 (NULL   ,   'Hamida579' ,   'hamida0715'    ,   'admin' ,   'hamida.souef@example.com'      ,   '192 Rue de la Victoire'        ,   93700   ,   'Drancy'                );
 
 INSERT INTO Products VALUES
-(NULL   ,   '', 85.00, 'assets/victoria-baskets-blanches-et-bleues-mixtes.jpg', €, 1),
-(NULL   ,   '', 00.00, '', €, 1),
-(NULL   ,   '', 00.00, '', €, 2),
+(NULL   ,   'Adidas',   '', 85.00, 'assets/victoria-baskets-blanches-et-bleues-mixtes.jpg', €, 1),
+(NULL   ,   'Adidas',   'Baskets adidas Originals Alphaboost v1',   111.49  ,   'assets/adidas-originals_ig0160_1_footwear_photography_side_lateral_center_view_white.jpg', €, 1),
+(NULL   ,   'Nike', 110.00, 'assets/baskets_nike_air_max_excee_noir.jpg', €, 2),
 (NULL   ,   '', 00.00, '', €, 2),
 (NULL   ,   '', 00.00, '', €, 3),
 (NULL   ,   '', 00.00, '', €, 3),
