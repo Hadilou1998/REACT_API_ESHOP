@@ -37,6 +37,18 @@ conn.connect(error => {
     console.log("Successfully connected to the database.");
 });
 
+// Récupération du header bearer
+const extractBearerToken = headerValue =>
+{
+    if (typeof headerValue !== "string") 
+    {
+        return false;   
+    }
+
+    const matches = headerValue.match(/(bearer)\s+(\S+)/i);
+    return matches && matches[2];
+}
+
 // listen for requests
 app.listen(PORT, () => {
     console.log(`Le serveur est lancé sur le port : ${PORT}`);
