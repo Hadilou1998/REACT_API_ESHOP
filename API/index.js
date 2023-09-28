@@ -40,4 +40,4 @@ conn.connect(error => {
 // listen for requests
 app.listen(PORT, () => {
     console.log(`Le serveur est lancé sur le port : ${PORT}`);
-})
+});
