@@ -49,19 +49,20 @@ INSERT INTO Clients VALUES
 
 INSERT INTO Products VALUES
 
-(NULL   ,   'Victoria'  ,   'Baskets mixtes rétro en cuir blanc'                            ,   85.00   ,   'assets/victoria-baskets-blanches-et-bleues-mixtes.jpg'                                     , € , 1),
-(NULL   ,   'Adidas'    ,   'Baskets adidas Originals Alphaboost v1'                        ,   111.49  ,   'assets/adidas-originals_ig0160_1_footwear_photography_side_lateral_center_view_white.jpg'  , € , 1),
-(NULL   ,   'Nike'      ,   'Baskets nike air max excee noir'                               ,   110.00  ,   'assets/baskets_nike_air_max_excee_noir.jpg'                                                , € , 2),
-(NULL   ,   'Adidas'    ,   'Baskets originals chaussure samba og'                          ,   120.00  ,   'assets/adidas_originals_chaussure_samba_og.jpg'                                            , € , 2),
-(NULL   ,   'Nike'      ,   'Baskets nike p6000 metallic silver'                            ,   110.00  ,   'assets/nike-p6000-metallic-silver'                                                         , € , 3),
-(NULL   ,   'Nike'      ,   'Baskets nike air dunk jumbo mint foam'                         ,   120.00  ,   'assets/Nike-Air-Dunk-Jumbo-Mint-Foam-700x500.jpg'                                          , € , 3),
-(NULL   ,   'Puma'      ,   'Baskets NOIR PUMA smash V2 SD'                                 ,   53.99   ,   'assets/baskets-noir-puma-smash-v2-sd.jpg'                                                  , € , 4),
-(NULL   ,   'Adidas'    ,   'Chaussures adidas Sportswear ADVANTAGE'                        ,   63.80   ,   'assets/adidas-advantage-sportswear'                                                        , € , 4),                                                                                                                                                                       
-(NULL   ,   'Converse'  ,   'Baskets mode femme Converse chuck taylor all star lift blanc'  ,   89.90   ,   'assets/baskets-converse-chuck-taylor-all-star-lift-blanc'                                  , € , 5),
-(NULL   ,   '', '' 00.00, '', €, 5),
-(NULL   ,   '', '' 00.00, '', €, 6),
-(NULL   ,   '', '' 00.00, '', €, 6),
-(NULL   ,   '', '' 00.00, '', €, 7),
-(NULL   ,   '', '' 00.00, '', €, 7),
-(NULL   ,   '', '' 00.00, '', €, 8),
-(NULL   ,   '', '' 00.00, '', €, 8);
+(NULL   ,   'Victoria'      ,   'Baskets mixtes rétro en cuir blanc'                            ,   85.00   ,   'assets/victoria-baskets-blanches-et-bleues-mixtes.jpg'                                     , € , 1),
+(NULL   ,   'Adidas'        ,   'Baskets adidas Originals Alphaboost v1'                        ,   111.49  ,   'assets/adidas-originals_ig0160_1_footwear_photography_side_lateral_center_view_white.jpg'  , € , 1),
+(NULL   ,   'Nike'          ,   'Baskets nike air max excee noir'                               ,   110.00  ,   'assets/baskets_nike_air_max_excee_noir.jpg'                                                , € , 2),
+(NULL   ,   'Adidas'        ,   'Baskets originals chaussure samba og'                          ,   120.00  ,   'assets/adidas_originals_chaussure_samba_og.jpg'                                            , € , 2),
+(NULL   ,   'Nike'          ,   'Baskets nike p6000 metallic silver'                            ,   110.00  ,   'assets/nike-p6000-metallic-silver'                                                         , € , 3),
+(NULL   ,   'Nike'          ,   'Baskets nike air dunk jumbo mint foam'                         ,   120.00  ,   'assets/Nike-Air-Dunk-Jumbo-Mint-Foam-700x500.jpg'                                          , € , 3),
+(NULL   ,   'Puma'          ,   'Baskets NOIR PUMA smash V2 SD'                                 ,   53.99   ,   'assets/baskets-noir-puma-smash-v2-sd.jpg'                                                  , € , 4),
+(NULL   ,   'Adidas'        ,   'Chaussures adidas Sportswear ADVANTAGE'                        ,   63.80   ,   'assets/adidas-advantage-sportswear.jpg'                                                    , € , 4),                                                                                                                                                                       
+(NULL   ,   'Converse'      ,   'Baskets mode femme Converse chuck taylor all star lift blanc'  ,   89.90   ,   'assets/baskets-converse-chuck-taylor-all-star-lift-blanc.jpg'                              , € , 5),
+(NULL   ,   'Vans'          ,   'Vans SK8-HI Noir/Blanc'                                        ,   72.00   ,   'assets/vans-baskets-montantes-en-toile-ua-sk8-hi-noir-bla.jpg'                             , € , 5),
+(NULL   ,   'Vans'          ,   'Vans Baskets Era Lacets Elastiqués Camouflage Vert Kaki'       ,   40.00   ,   'assets/baskets-era-lacets-elastiques-camouflage.jpg'                                       , € , 6),
+(NULL   ,   'Nike'          ,   'Nike Dunk Low Twist "Panda"'                                   ,   120.00  ,   'assets/nike-dunk-twist-panda-black-white-3.jpg'                                            , € , 6),
+(NULL   ,   'Adidas'        ,   'Adidas Originals Campus 00s dark green'                        ,   110.00  ,   'assets/adidas_originals_campus_00s_dark_green.jpg'                                         , € , 7),
+(NULL   ,   'New Balance'   ,   'New Balance 2002R "Phantom"'                                   ,   130.00  ,   'assets/new-balance-2002r-phantom-m2002rho-banner.jpg'                                      , € , 7),
+(NULL   ,   'Converse'      ,   'Converse chuck taylor all star hi white'                       ,   60.00   ,   'assets/converse-chuck-taylor-all-star-hi-white-50.jpg'                                     , € , 8),
+(NULL   ,   'New Balance'   ,   'New Balance 327'                                               ,   130.00  ,   'assets/new-balance-327.jpg'                                                                , € , 8);
+
