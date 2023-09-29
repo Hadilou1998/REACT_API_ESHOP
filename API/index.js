@@ -49,6 +49,67 @@ const extractBearerToken = headerValue =>
     return matches && matches[2];
 }
 
+// Vérification du token user
+const checkTokenMiddleware = (req, res, next) =>
+{
+    // Récupération du token
+    const accessToken = req.headers.authorization && extractBearerToken(req.headers.authorization);
+
+    // Présence du token
+    if (!accessToken) 
+    {
+        return res.status(401).json
+        ({
+            message: "We need a token"
+        });   
+    }
+
+    // Véracité du token
+    jsonwebtoken.verify(accessToken, accessTokenSecret, (err, decoded) =>
+    {
+        if (err) 
+        {
+            res.status(401).json
+            ({
+                message: "Invalid Token..."
+            });    
+        } 
+        else 
+        {
+            return next();    
+        }
+    });
+};
+
+// Vérification du token admin
+const checkAdminMiddleware = (req, res, next) =>
+{
+    const authHeader = req.headers.authorization;
+    if (authHeader) 
+    {
+        const accessToken = authHeader.split(' ')[1];
+        
+        jsonwebtoken.verify(accessToken, accessTokenSecret, (err, user) =>
+        {
+            if (err) 
+            {
+                return res.sendStatus(403);    
+            }
+
+            req.user = user;
+            next();
+        });
+    }
+    else
+    {
+        res.sendStatus(401);
+    }
+};
+
+/* Partie User */
+
+// add new User
+
 // listen for requests
 app.listen(PORT, () => {
     console.log(`Le serveur est lancé sur le port : ${PORT}`);
