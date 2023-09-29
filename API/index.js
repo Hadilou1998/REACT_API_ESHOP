@@ -108,7 +108,18 @@ const checkAdminMiddleware = (req, res, next) =>
 
 /* Partie User */
 
-// add new User
+// Add new User
+app.post("/register", (req, res) =>
+{
+    const data = {username: req.body.username, password: req.body.password, role: req.body.role, email: req.body.email, adresse: req.body.adresse, codepostal: req.body.codepostal, ville: req.body.ville}
+    const query = conn.query("INSERT INTO Clients SET ?", data, (err, results) =>
+    {
+        if (err) throw err;
+        res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+    });
+});
+
+// Returns a jwt token
 
 // listen for requests
 app.listen(PORT, () => {
