@@ -120,6 +120,42 @@ app.post("/register", (req, res) =>
 });
 
 // Returns a jwt token
+app.post("/login", async (req, res) =>
+{
+    if (!req.body.username || !req.body.password) 
+    {
+        return res.status(400).json
+        ({
+            message: "Please enter your correct username and password"
+        });   
+    }
+
+    // Checking
+    const user = await conn.query("SELECT id, username, role, email, adresse, codepostal, ville WHERE username='"+req.body.username+"' AND password='"+req.body.password+"'", (err, value) =>
+    {
+        // Not good
+        if (!value) 
+        {
+            return res.status(400).json
+            ({
+                message: "Invalid username or password"
+            });    
+        }
+
+        // Generate an access token
+        const accessToken = jsonwebtoken.sign
+        ({
+            id: value[0].id,
+            username: value[0].username,
+            password: value[0].password,
+            role: value[0].role,
+            email: value[0].email,
+            adresse: value[0].adresse,
+            codepostal: value[0].codepostal,
+            ville: value[0].ville
+        }, accessTokenSecret, { expiresIn: "4 hours" });
+    });
+});
 
 // listen for requests
 app.listen(PORT, () => {
