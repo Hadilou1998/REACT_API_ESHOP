@@ -154,6 +154,11 @@ app.post("/login", async (req, res) =>
             codepostal: value[0].codepostal,
             ville: value[0].ville
         }, accessTokenSecret, { expiresIn: "4 hours" });
+
+        return res.json
+        ({
+            access_token: accessToken
+        });
     });
 });
 
