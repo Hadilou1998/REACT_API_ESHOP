@@ -45,7 +45,7 @@ INSERT INTO Clients VALUES
 (NULL   ,   'Emilie246' ,   'emilie0630'    ,   'user'  ,   'emilie.mitchell@example.com'   ,   '120 Avenue des Champs-Elysées' ,   75008   ,   'Paris'                 ),
 (NULL   ,   'Fadwa357'  ,   'fadwa0703'     ,   'admin' ,   'fadwa.oussein@example.com'     ,   '144 Rue de Paris'              ,   95400   ,   'Villiers-le-Bel'       ),
 (NULL   ,   'Goulam468' ,   'goulam0628'    ,   'user'  ,   'goulam.badoro@example.com'     ,   '168 Boulevard Marcel Sembat'   ,   93200   ,   'Saint-Denis'           ),
-(NULL   ,   'Hamida579' ,   'hamida0715'    ,   'admin' ,   'hamida.souef@example.com'      ,   '192 Avenue de la Victoire'     ,   93700   ,   'Drancy'                );
+(NULL   ,   'Hamida579' ,   'hamida0715'    ,   'admin' ,   'hamida.souef@example.com'      ,   '192 Avenue de la Victoire'     ,   94390   ,   'Orly'                  );
 
 INSERT INTO Products VALUES
 
