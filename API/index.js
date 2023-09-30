@@ -162,7 +162,7 @@ app.post("/login", async (req, res) =>
     });
 });
 
-// Retrieve current client info
+// Retrieve current customer info
 app.get("/me", checkTokenMiddleware, async (req, res) =>
 {
     // Récupération du token
@@ -171,6 +171,18 @@ app.get("/me", checkTokenMiddleware, async (req, res) =>
     const decoded = jsonwebtoken.decode(accessToken, { complete : false });
 
     return res.json( decoded );
+});
+
+// Retrieve all Customers
+app.get("/Customers", (req, res) =>
+{
+    // Requête d'éxecution
+    const sql = "SELECT * FROM Clients";
+    const query = conn.query(sql, (err, results) =>
+    {
+        if (err) throw err;
+        res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+    });
 });
 
 // listen for requests
