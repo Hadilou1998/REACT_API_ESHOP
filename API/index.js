@@ -174,7 +174,7 @@ app.get("/me", checkTokenMiddleware, async (req, res) =>
 });
 
 // Retrieve all Customers
-app.get("/Customers", (req, res) =>
+app.get("/customers", (req, res) =>
 {
     // Requête d'éxecution
     const sql = "SELECT * FROM Clients";
