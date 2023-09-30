@@ -131,7 +131,7 @@ app.post("/login", async (req, res) =>
     }
 
     // Checking
-    const user = await conn.query("SELECT id, username, role, email, adresse, codepostal, ville WHERE username='"+req.body.username+"' AND password='"+req.body.password+"'", (err, value) =>
+    const user = await conn.query("SELECT id, username, role, email, adresse, codepostal, ville FROM Clients WHERE username='"+req.body.username+"' AND password='"+req.body.password+"'", (err, value) =>
     {
         // Not good
         if (!value) 
