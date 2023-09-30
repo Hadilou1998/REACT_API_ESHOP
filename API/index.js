@@ -162,6 +162,17 @@ app.post("/login", async (req, res) =>
     });
 });
 
+// Retrieve current client info
+app.get("/me", checkTokenMiddleware, async (req, res) =>
+{
+    // Récupération du token
+    const accessToken = req.headers.authorization && extractBearerToken(req.headers.authorization);
+    // Décodage du token
+    const decoded = jsonwebtoken.decode(accessToken, { complete : false });
+
+    return res.json( decoded );
+});
+
 // listen for requests
 app.listen(PORT, () => {
     console.log(`Le serveur est lancé sur le port : ${PORT}`);
