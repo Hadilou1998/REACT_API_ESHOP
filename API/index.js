@@ -106,9 +106,9 @@ const checkAdminMiddleware = (req, res, next) =>
     }
 };
 
-/* Partie User */
+/* Partie Customer */
 
-// Add new User
+// Add new Customer
 app.post("/register", (req, res) =>
 {
     const data = {username: req.body.username, password: req.body.password, role: req.body.role, email: req.body.email, adresse: req.body.adresse, codepostal: req.body.codepostal, ville: req.body.ville}
@@ -191,7 +191,7 @@ app.put("/customer/:id", checkAdminMiddleware, async (req, res) =>
     // Récupération du token
     const accessToken = req.headers.authorization && extractBearerToken(req.headers.authorization);
     // Décodage du token
-    const user = jsonwebtoken.decode(accessToken, { complete : false });
+    const customer = jsonwebtoken.decode(accessToken, { complete : false });
 
     // Vérifie si le client est admin
     const { role, id } = req.body;
@@ -231,6 +231,115 @@ app.put("/customer/:id", checkAdminMiddleware, async (req, res) =>
         });
     }
 });
+
+// Retrieve customer info
+app.get("/customer/:id", checkAdminMiddleware, async (req, res) =>
+{
+    // Récupération du token
+    const accessToken = req.headers.authorization && extractBearerToken(req.headers.authorization);
+    // Décodage du token
+    const customer = jsonwebtoken.decode(accessToken, { complete : false });
+
+    // Vérifie si le client est admin
+    const { role, id } = req.body;
+
+    if (role && id) 
+    {
+        if (role == "admin") 
+        {
+            const id = req.params.id;
+            const sql = "SELECT * FROM Clients WHERE id = "+req.params.id;
+            const query = await conn.query(sql, (err, results) =>
+            {
+                if (!err) 
+                {
+                    console.log("Infos of customer retrieved");   
+                } 
+                else 
+                {
+                    console.log(err);    
+                }
+            });    
+        }
+        else 
+        {
+            return res.status(400).json
+            ({
+                error: true,
+                message: "Access Denied"
+            });
+        }       
+    } 
+    else 
+    { 
+        return res.status(400).json
+        ({
+            message: "Role and Id doesn't exist"
+        });
+    }
+});
+
+// Delete a Customer with customerId
+app.delete("/customer/:id", checkAdminMiddleware, async (req, res) =>
+{
+    // Récupération du token
+    const accessToken = req.headers.authorization && extractBearerToken(req.headers.authorization);
+    // Décodage du token
+    const customer = jsonwebtoken.decode(accessToken, { complete : false });
+
+    // Vérifier si le client est admin
+    customer.role, customer.id;
+
+    if (customer.id == req.params.id && customer.role == "user") 
+    {
+        const id = req.params.id;
+        const sql = "DELETE FROM Clients WHERE id = "+req.params.id;
+        const query = await conn.query(sql, (err, results) =>
+        {
+            if (err) 
+            {
+                console.log("Customer Deleted Failed");    
+            } 
+            else 
+            {
+                console.log("Customer Deleted Successfully");                
+            }
+        });    
+    } 
+    else 
+    {
+        if (customer.role == "admin") 
+        {
+            const id = req.params.id;
+            const sql = "DELETE FROM Clients WHERE id = "+req.params.id;
+            const query = await conn.query(sql, (err, results) =>
+            {
+                if (err) 
+                {
+                    console.log("Customer Deleted Failed");    
+                } 
+                else 
+                {
+                    console.log("Customer Deleted Successfully");                
+                }
+            });    
+        }
+    }
+});
+
+// Delete all Customers
+app.delete("/customers", (req, res) =>
+{
+    // Requête d'éxecution
+    const sql = "DELETE FROM Clients";
+    const query = conn.query(sql, (err, results) =>
+    {
+        if (err) throw err;
+        res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+    });
+});
+
+/* Fin partie Customer */
 
 // listen for requests
 app.listen(PORT, () => {
