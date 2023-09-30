@@ -185,6 +185,53 @@ app.get("/customers", (req, res) =>
     });
 });
 
+// Update a Customer with customerId
+app.put("/customer/:id", checkAdminMiddleware, async (req, res) =>
+{
+    // Récupération du token
+    const accessToken = req.headers.authorization && extractBearerToken(req.headers.authorization);
+    // Décodage du token
+    const user = jsonwebtoken.decode(accessToken, { complete : false });
+
+    // Vérifie si le client est admin
+    const { role, id } = req.body;
+
+    if (role && id) 
+    {
+        if (role == "admin") 
+        {
+            const id = req.params.id;
+            const sql = "UPDATE Clients SET username='"+req.body.username+"', password='"+req.body.password+"', role='"+req.body.role+"', email='"+req.body.email+"', adresse='"+req.body.adresse+"', codepostal='"+req.body.codepostal+"', ville='"+req.body.ville+"' WHERE id = "+req.params.id;
+            const query = await conn.query(sql, (err, results) =>
+            {
+                if (!err) 
+                {
+                    console.log("Customer Updated Successfully");   
+                } 
+                else 
+                {
+                    console.log(err);    
+                }
+            });    
+        }
+        else 
+        {
+            return res.status(400).json
+            ({
+                error: true,
+                message: "Access Denied"
+            });
+        }   
+    }
+    else
+    {
+        return res.status(400).json
+        ({
+            message: "Role and Id doesn't exist"
+        });
+    }
+});
+
 // listen for requests
 app.listen(PORT, () => {
     console.log(`Le serveur est lancé sur le port : ${PORT}`);
