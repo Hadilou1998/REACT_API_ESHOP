@@ -341,6 +341,25 @@ app.delete("/customers", (req, res) =>
 
 /* Fin partie Customer */
 
+/* Partie Product */
+
+// Add new Product
+app.post("/products/create", checkTokenMiddleware, async (req, res) =>
+{
+    // Récupération du token
+    const accessToken = req.headers.authorization && extractBearerToken(req.headers.authorization);
+    // Décodage du token
+    const decoded = jsonwebtoken.decode(accessToken, { complete: false });
+
+    // Requête d'éxecution
+    const data = {name: req.body.name, description: req.body.description, price: req.body.price, link: req.body.link, currency: req.body.currency, id_client: req.params.id}
+    const query = conn.query("INSERT INTO Products SET ?", data, (err, results) =>
+    {
+        if (err) throw err;
+        res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+    });
+});
+
 // listen for requests
 app.listen(PORT, () => {
     console.log(`Le serveur est lancé sur le port : ${PORT}`);
