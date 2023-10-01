@@ -344,7 +344,7 @@ app.delete("/customers", (req, res) =>
 /* Partie Product */
 
 // Add new Product
-app.post("/products/create", checkTokenMiddleware, async (req, res) =>
+app.post("/product/create", checkTokenMiddleware, async (req, res) =>
 {
     // Récupération du token
     const accessToken = req.headers.authorization && extractBearerToken(req.headers.authorization);
@@ -359,6 +359,105 @@ app.post("/products/create", checkTokenMiddleware, async (req, res) =>
         res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
     });
 });
+
+// Retrieve product info
+app.get("/product/:id", checkTokenMiddleware, async (req, res) =>
+{
+    // Récupération du token
+    const accessToken = req.headers.authorization && extractBearerToken(req.headers.authorization);
+    // Décodage du token
+    const decoded = jsonwebtoken.decode(accessToken, { complete: false });
+    
+    // Requête d'éxecution
+    const id = req.params.id;
+    const sql = "SELECT * FROM Products WHERE id "+req.params.id;
+    const query = conn.query(sql, (err, rows, fields) =>
+    {
+        if (!err) 
+        {
+            res.send(rows);    
+        } 
+        else 
+        {
+            console.log(err);   
+        }
+    });
+});
+
+// Update a Product with productId
+app.put("/product/:id", checkTokenMiddleware, async (req, res) =>
+{
+    // Récupération du token
+    const accessToken = req.headers.authorization && extractBearerToken(req.headers.authorization);
+    // Décodage du token
+    const decoded = jsonwebtoken.decode(accessToken, { complete: false });
+
+    // Requête d'éxecution
+    const id = req.params.id;
+    const sql = "UPDATE Products SET name = '"+req.body.name+"', description = '"+req.body.description+"', price = '"+req.body.price+"', link = '"+req.body.link+"', currency = '"+req.body.currency+"', id_client = "+req.params.id+" WHERE id = "+req.params.id;
+    const query = conn.query(sql, (err, results) =>
+    {
+        if (!err) 
+        {
+            console.log("Product updated successfully");    
+        } 
+        else 
+        {
+            console.log(err);    
+        }
+    });
+});
+
+// Delete a Product with productId
+app.delete("/product/:id", checkTokenMiddleware, async (req, res) =>
+{
+    // Récupération du token
+    const accessToken = req.headers.authorization && extractBearerToken(req.headers.authorization);
+    // Décodage du token
+    const decoded = jsonwebtoken.decode(accessToken, { complete: false });
+
+    // Requête d'éxecution
+    const id = req.params.id;
+    const sql = "DELETE FROM Products WHERE id = "+req.params.id;
+    const query = conn.query(sql, (err, results) =>
+    {
+        if (!err) 
+        {
+            console.log("Product deleted successfully")    
+        } 
+        else 
+        {
+            console.log(err);    
+        }
+    });
+});
+
+// Retrieve all Products
+app.get("/products", (req, res) =>
+{
+    // Requête d'éxecution
+    const sql = "SELECT * FROM Products";
+    const query = conn.query(sql, (err, results) =>
+    {
+        if (err) throw err;
+        res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+    });
+});
+
+// Delete all Products with customerId
+app.get("/products/:clientId", (req, res) =>
+{
+    // Requête d'éxecution
+    const id_client = req.params.id;
+    const sql = "DELETE FROM Products WHERE id_client = "+req.params.id;
+    const query = conn.query(sql, (err, results) =>
+    {
+        if (err) throw err;
+        res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+    });
+});
+
+/* Fin partie Product */
 
 // listen for requests
 app.listen(PORT, () => {
