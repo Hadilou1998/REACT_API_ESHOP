@@ -191,7 +191,7 @@ app.put("/customer/:id", checkAdminMiddleware, async (req, res) =>
     // Récupération du token
     const accessToken = req.headers.authorization && extractBearerToken(req.headers.authorization);
     // Décodage du token
-    const customer = jsonwebtoken.decode(accessToken, { complete : false });
+    const user = jsonwebtoken.decode(accessToken, { complete : false });
 
     // Vérifie si le client est admin
     const { role, id } = req.body;
@@ -238,7 +238,7 @@ app.get("/customer/:id", checkAdminMiddleware, async (req, res) =>
     // Récupération du token
     const accessToken = req.headers.authorization && extractBearerToken(req.headers.authorization);
     // Décodage du token
-    const customer = jsonwebtoken.decode(accessToken, { complete : false });
+    const user = jsonwebtoken.decode(accessToken, { complete : false });
 
     // Vérifie si le client est admin
     const { role, id } = req.body;
@@ -285,12 +285,12 @@ app.delete("/customer/:id", checkAdminMiddleware, async (req, res) =>
     // Récupération du token
     const accessToken = req.headers.authorization && extractBearerToken(req.headers.authorization);
     // Décodage du token
-    const customer = jsonwebtoken.decode(accessToken, { complete : false });
+    const user = jsonwebtoken.decode(accessToken, { complete : false });
 
     // Vérifier si le client est admin
-    customer.role, customer.id;
+    user.role, user.id;
 
-    if (customer.id == req.params.id && customer.role == "user") 
+    if (user.id == req.params.id && user.role == "user") 
     {
         const id = req.params.id;
         const sql = "DELETE FROM Clients WHERE id = "+req.params.id;
@@ -308,7 +308,7 @@ app.delete("/customer/:id", checkAdminMiddleware, async (req, res) =>
     } 
     else 
     {
-        if (customer.role == "admin") 
+        if (user.role == "admin") 
         {
             const id = req.params.id;
             const sql = "DELETE FROM Clients WHERE id = "+req.params.id;
