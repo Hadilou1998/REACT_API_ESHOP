@@ -19,7 +19,7 @@ const Register = () =>
         e.preventDefault();
         try
         {
-            await axios.post('http://localhost:8080/customers', 
+            await axios.post('http://localhost:3000/customers', 
             {
                 username: username,
                 password: password,
