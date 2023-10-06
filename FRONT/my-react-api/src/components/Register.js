@@ -11,4 +11,33 @@ const Register = () =>
     const [adresse, setAdresse] = useState('');
     const [codepostal, setCodepostal] = useState('');
     const [ville, setVille] = useState('');
+    const [message, setMessage] = useState('');
+    const history = useHistory();
+
+    const Register = async(e) =>
+    {
+        e.preventDefault();
+        try
+        {
+            await axios.post('http://localhost:8080/customers', 
+            {
+                username: username,
+                password: password,
+                role: role,
+                email: email,
+                adresse: adresse,
+                codepostal: codepostal,
+                ville: ville
+            });
+            history.push("/");
+        } catch (error) 
+        {
+            if (error.response) 
+            {
+                setMessage(error.response.data.message)    
+            }
+        }
+    }
 }
+
+export default Register
