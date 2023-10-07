@@ -47,7 +47,12 @@ const Register = () =>
                         <div className='columns is-4-desktop'>
                             <form onSubmit={Register} className='box'>
                                 <p className='has-text-centered'>{message}</p>
-                                <div className='field mt-5'></div>
+                                <div className='field mt-5'>
+                                    <label className='label'>Username</label>
+                                    <div className='controls'>
+                                        <input type='text' className='input' placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value)} />
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
