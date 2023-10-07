@@ -19,7 +19,7 @@ const Register = () =>
         e.preventDefault();
         try
         {
-            await axios.post('http://localhost:3000/customers', 
+            await axios.post('http://localhost:8080/customers', 
             {
                 username: username,
                 password: password,
@@ -38,6 +38,23 @@ const Register = () =>
             }
         }
     }
+
+    return (
+        <section className='hero has-background-grey-light is-fullheight is-fullwidth'>
+            <div className='hero-body'>
+                <div className='container'>
+                    <div className='columns is-centered'>
+                        <div className='columns is-4-desktop'>
+                            <form onSubmit={Register} className='box'>
+                                <p className='has-text-centered'>{message}</p>
+                                <div className='field mt-5'></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
 }
 
 export default Register
