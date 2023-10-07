@@ -53,6 +53,45 @@ const Register = () =>
                                         <input type='text' className='input' placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value)} />
                                     </div>
                                 </div>
+                                <div className='field mt-5'>
+                                    <label className='label'>Password</label>
+                                    <div className='controls'>
+                                        <input type='password' className='input' placeholder='******' value={password} onChange={(e) => setPassword(e.target.value)} />
+                                    </div>
+                                </div>
+                                <div className='field mt-5'>
+                                    <label className='label'>Role</label>
+                                    <div className='controls'>
+                                        <input type='text' className='input' placeholder='Role' value={role} onChange={(e) => setRole(e.target.value)} />
+                                    </div>
+                                </div>
+                                <div className='field mt-5'>
+                                    <label className='label'>Email</label>
+                                    <div className='controls'>
+                                        <input type='text' className='input' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                                    </div>
+                                </div>
+                                <div className='field mt-5'>
+                                    <label className='label'>Adresse</label>
+                                    <div className='controls'>
+                                        <input type='text' className='input' placeholder='Adresse' value={adresse} onChange={(e) => setAdresse(e.target.value)} />
+                                    </div>
+                                </div>
+                                <div className='field mt-5'>
+                                    <label className='label'>Codepostal</label>
+                                    <div className='controls'>
+                                        <input type='text' className='input' placeholder='Codepostal' value={codepostal} onChange={(e) => setCodepostal(e.target.value)} />
+                                    </div>
+                                </div>
+                                <div className='field mt-5'>
+                                    <label className='label'>Ville</label>
+                                    <div className='controls'>
+                                        <input type='text' className='input' placeholder='Ville' value={ville} onChange={(e) => setVille(e.target.value)} />
+                                    </div>
+                                </div>
+                                <div className='field mt-5'>
+                                    <button className='button is-success is-fullwidth'>Register</button>
+                                </div>
                             </form>
                         </div>
                     </div>
