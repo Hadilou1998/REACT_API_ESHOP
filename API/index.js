@@ -219,7 +219,7 @@ app.put("/customer/:id", checkAdminMiddleware, async (req, res) =>
             return res.status(400).json
             ({
                 error: true,
-                message: "Access Denied"
+                message: "Access Denied! You're not an Admin"
             });
         }   
     }
@@ -266,7 +266,7 @@ app.get("/customer/:id", checkAdminMiddleware, async (req, res) =>
             return res.status(400).json
             ({
                 error: true,
-                message: "Access Denied"
+                message: "Access Denied! You're not an Admin"
             });
         }       
     } 
