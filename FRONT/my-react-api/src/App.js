@@ -1,29 +1,27 @@
-import React, { useState } from 'react';
+import React/*, { useState }*/ from 'react';
 import './App.css';
-import Axios from 'axios';
-import logo from './logo.svg';
+/*import Axios from 'axios';
+import logo from './logo.svg';*/
 
 function App()
 {
-  /*return (
+  return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <form method="POST">
+          <div>
+            <label className="username">Username</label>
+            <input type="text" placeholder="Veuillez saisir votre pseudo ou identifiant" />
+          </div>
+          <div>
+            <label className="password">Password</label>
+            <input type="password" placeholder="Veuillez saisir votre mot de passe" />
+          </div>
+        </form>
+      </div>
     </div>
-  );*/
-  const [usernameReg, setUsernameReg] = useState('');
+  );
+  /*const [usernameReg, setUsernameReg] = useState('');
   const [passwordReg, setPasswordReg] = useState('');
   const [roleReg, setRoleReg] = useState('');
   const [emailReg, setEmailReg] = useState('');
@@ -103,7 +101,7 @@ function App()
       </div>
       <h1>{loginStatus}</h1>
     </div>
-  );
+  );*/
 }
 
 export default App;
