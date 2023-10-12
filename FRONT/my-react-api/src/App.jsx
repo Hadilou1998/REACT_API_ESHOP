@@ -1,12 +1,15 @@
-import React/*, { useState }*/ from 'react';
-import './App.css';
+import React from 'react';
+/*import './App.css';*/
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Home from './components/Home';
+import Register from './components/Register';
 /*import Axios from 'axios';
 import logo from './logo.svg';*/
 
 function App()
 {
   return (
-    <div className="App">
+    /*<div className="App">
       <div>
         <form method="POST">
           <div>
@@ -19,8 +22,17 @@ function App()
           </div>
         </form>
       </div>
-    </div>
+    </div>*/
+
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/register' element={<Register />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
+
+
   /*const [usernameReg, setUsernameReg] = useState('');
   const [passwordReg, setPasswordReg] = useState('');
   const [roleReg, setRoleReg] = useState('');
