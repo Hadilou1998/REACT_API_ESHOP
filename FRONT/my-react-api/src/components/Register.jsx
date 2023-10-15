@@ -1,6 +1,11 @@
 import React from "react";
 
-function Register()
+const Register = () =>
+{
+    return <h1>S'inscrire</h1>
+};
+
+/*function Register()
 {
     return (
         <div className="d-flex justify-content-center align-items-center bg-primary vh-100">
@@ -40,6 +45,6 @@ function Register()
             </div>
         </div>
     )
-}
+}*/
 
 export default Register
