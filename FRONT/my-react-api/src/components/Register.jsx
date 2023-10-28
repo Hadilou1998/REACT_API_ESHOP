@@ -2,47 +2,71 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import UserContext from "../context/userContext";
+import ErrorNotice from "./ErrorNotice";
 
-const Register = () =>
+function Register()
 {
+    const [username, setUsername] = useState();
+    const [password, setPassword] = useState();
+    const [role, setRole] = useState();
+    const [email, setEmail] = useState();
+    const [adresse, setAdresse] = useState();
+    const [codepostal, setCodepostal] = useState();
+    const [ville, setVille] = useState();
+    const [error, setError] = useState();
+
+    const { setUserData } = useContext(UserContext);
+    const history = useNavigate();
+    
+    const submit = async (e) =>
+    {
+        e.preventDefault();
+
+        try 
+        {
+            const newUser = {username, password, role, email, adresse, codepostal, ville};
+            await axios.post("http://localhost:8080/register", newUser);
+            const loginResponse = await axios.post("http://localhost:8080/login", 
+            {
+                username, password
+            });
+            setUserData({
+                token   :   loginResponse.data.token,
+                user    :   loginResponse.data.user
+            });
+            localStorage.setItem("my-token", loginResponse.data.token);
+            history.push("/");    
+        } 
+        catch(err) 
+        {
+            err.response.data.msg && setError(err.response.data.msg);   
+        }
+    };
+
     return (
-        <div className="d-flex justify-content-center align-items-center bg-primary vh-100">
-            <div className="bg-white p-3 rounded w-25">
-                <h2>Register</h2>
-                <form>
-                    <div className="mb-3">
-                        <label htmlFor="username"><strong>Username</strong></label>
-                        <input type="text" placeholder="Enter your username" name="username" className="form-control rounded-0" />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="password"><strong>Password</strong></label>
-                        <input type="password" placeholder="Enter your password" name="password" className="form-control rounded-0" />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="role"><strong>Role</strong></label>
-                        <input type="text" placeholder="Enter your role" name="role" className="form-control rounded-0" />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="email"><strong>Email</strong></label>
-                        <input type="email" placeholder="Enter your email" name="email" className="form-control rounded-0" />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="adresse"><strong>Adresse</strong></label>
-                        <input type="text" placeholder="Enter your address" name="adresse" className="form-control rounded-0" />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="codepostal"><strong>Codepostal</strong></label>
-                        <input type="text" placeholder="Enter your zip code" name="codepostal" className="form-control rounded-0" />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="ville"><strong>Ville</strong></label>
-                        <input type="text" placeholder="Enter your city" name="ville" className="form-control rounded-0" />
-                    </div>
-                    <button type="submit" className="btn btn-success w-100 rounded-0">Sign up</button>
-                </form>
-            </div>
+        <div className="register">
+            <h2>Register</h2>
+            {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
+            <form onSubmit={submit}>
+                <label>Username: </label>
+                <input type="text" id="username" onChange={e => setUsername(e.target.value)} placeholder="Enter your username" />
+                <label>Password: </label>
+                <input type="password" id="password" onChange={e => setPassword(e.target.value)} placeholder="Enter your password" />
+                <label>Role: </label>
+                <input type="text" id="role" onChange={e => setRole(e.target.value)} placeholder="Enter your role" />
+                <label>Email: </label>
+                <input type="email" id="email" onChange={e => setEmail(e.target.value)} placeholder="Enter your email" />
+                <label>Adresse: </label>
+                <input type="text" id="adresse" onChange={e => setAdresse(e.target.value)} placeholder="Enter your address" />
+                <label>Codepostal: </label>
+                <input type="text" id="codepostal" onChange={e => setCodepostal(e.target.value)} placeholder="Enter your zip code" />
+                <label>Ville: </label>
+                <input type="text" id="ville" onChange={e => setVille(e.target.value)} placeholder="Enter your city" />
+                
+                <input type="submit" value="Register" className="btn btn-success w-100 rounded-0" />
+            </form>
         </div>
-    )
+    );
 }
 
-export default Register
+export default Register;

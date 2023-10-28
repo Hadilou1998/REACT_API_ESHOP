@@ -9,8 +9,7 @@ import UserContext from './context/userContext';
 
 function App()
 {
-  const [ userData, setUserData ] = useState
-  ({
+  const [ userData, setUserData ] = useState ({
     token : undefined,
     user  : undefined 
   });
@@ -20,7 +19,7 @@ function App()
     const checkLoggedIn = async () =>
     {
       let token = localStorage.getItem("my-token");
-      if (token == null) 
+      if (token === null) 
       {
         localStorage.setItem("my-token", "");
         token = "";  
@@ -28,14 +27,12 @@ function App()
       const tokenResponse = await axios.post("http://localhost:8080/customers/tokenIsValid", null, {headers: {"x-my-token": token}});
       if (tokenResponse.data) 
       {
-        const userRes = await axios.get("http://localhost:8080/customers/", 
-        {
+        const userRes = await axios.get("http://localhost:8080/customers/", {
           headers: { "x-my-token": token },
         });
-        setUserData
-        ({
+        setUserData ({
           token,
-          user: userRes.data
+          user: userRes.data,
         }); 
       }
     }
