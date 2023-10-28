@@ -2,26 +2,7 @@
   text-align: center;
 }
 
-.registration {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.login {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-input {
-  width: 250px;
-  height: 40px;
-}
-
-/*.App-logo {
+.App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -54,4 +35,23 @@ input {
   to {
     transform: rotate(360deg);
   }
-}*/
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: 250px;
+  height: 40px;
+}
