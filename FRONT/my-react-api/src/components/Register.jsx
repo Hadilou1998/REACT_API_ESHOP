@@ -2,11 +2,6 @@ import React from "react";
 
 const Register = () =>
 {
-    return <h1>S'inscrire</h1>
-};
-
-/*function Register()
-{
     return (
         <div className="d-flex justify-content-center align-items-center bg-primary vh-100">
             <div className="bg-white p-3 rounded w-25">
@@ -45,6 +40,6 @@ const Register = () =>
             </div>
         </div>
     )
-}*/
+}
 
 export default Register
