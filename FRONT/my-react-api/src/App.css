@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
+/*.App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,23 +35,29 @@
   to {
     transform: rotate(360deg);
   }
+}*/
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #66004d;
+}
+
+.header a {
+  color: #fff;
+  text-decoration: none;
 }
 
 .register {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 
 .login {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 
-input {
+.register input {
   width: 250px;
   height: 40px;
 }
