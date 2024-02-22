@@ -20,6 +20,10 @@ function Login()
                 password: password
             });
         }
+        catch (error)
+        {
+            error.response.data.msg && setError(error.response.data.msg);
+        }
     }
 };
 
