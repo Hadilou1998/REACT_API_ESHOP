@@ -1,8 +1,6 @@
-import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import axios from "axios";
-import UserContext from "../context/userContext";
-import ErrorNotice from "./ErrorNotice";
+import { useHistory } from "react-router-dom";
 
 function Register()
 {
@@ -13,40 +11,40 @@ function Register()
     const [adresse, setAdresse] = useState('');
     const [codepostal, setCodepostal] = useState('');
     const [ville, setVille] = useState('');
-    const [error, setError] = useState();
-
-    const { setUserData } = useContext(UserContext);
-    const history = useNavigate();
+    const [msg, setMsg] = useState('');
+    const history = useHistory();
     
-    const submit = async (e) =>
+    const Register = async (e) =>
     {
         e.preventDefault();
 
         try 
         {
             const newUser = {username, password, role, email, adresse, codepostal, ville};
-            await axios.post("http://localhost:8080/register", newUser);
-            const loginResponse = await axios.post("http://localhost:8080/login", 
+            await axios.post("http://localhost:8080/register", 
             {
-                username, password
+                username: username,
+                password: password,
+                role: role,
+                email: email,
+                adresse: adresse,
+                codepostal: codepostal,
+                ville: ville
             });
-            setUserData({
-                token   :   loginResponse.data.token,
-                user    :   loginResponse.data.user
-            });
-            localStorage.setItem("my-token", loginResponse.data.token);
-            history.push("/");    
+            history.push("/");   
         } 
-        catch(err) 
+        catch (error) 
         {
-            err.response.data.msg && setError(err.response.data.msg);   
+            if (error.response)
+            {
+                setMsg(error.response.data.msg);    
+            }  
         }
     };
 
     return (
         <div className="register">
             <h2>Register</h2>
-            {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
             <form onSubmit={submit}>
                 <label>Username: </label>
                 <input type="text" id="username" onChange={e => setUsername(e.target.value)} placeholder="Enter your username" />

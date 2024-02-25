@@ -25,6 +25,8 @@ function Login()
             error.response.data.msg && setError(error.response.data.msg);
         }
     }
+
+    return
 };
 
 export default Login;
