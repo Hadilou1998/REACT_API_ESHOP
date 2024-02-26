@@ -50,15 +50,14 @@ function Listcustomer()
                             <td>{ customer.ville }</td>
                             <td>
                                 <Link to={`/edit/${customer.id}`} className='button is-small is-info'>Edit</Link>
+                                <button onClick={ () => deleteCustomer(customer.id) } className='button is-small is-danger'>Delete</button>
                             </td>
                         </tr>
-                    ))
-
-                    }
+                    )) }
                 </tbody>
             </table>
         </div>
-    )
+    );
 }
 
 export default Listcustomer;

@@ -42,7 +42,7 @@ function Login()
                 <input type="submit" value="Login" className="btn btn-success w-100 rounded-0" />
             </form>
         </div>
-    )
-};
+    );
+}
 
 export default Login;
