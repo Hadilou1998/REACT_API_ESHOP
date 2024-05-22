@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
 
 function Register()
 {
@@ -12,7 +11,6 @@ function Register()
     const [codepostal, setCodepostal] = useState('');
     const [ville, setVille] = useState('');
     const [msg, setMsg] = useState('');
-    const history = useHistory();
     
     const Register = async (e) =>
     {

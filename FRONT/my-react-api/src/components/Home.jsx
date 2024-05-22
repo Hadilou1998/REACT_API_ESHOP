@@ -34,6 +34,8 @@ const Home = () =>
             } 
         }
     }
+
+    const axiosJWT = axios.create();
 };
 
 export default Home;
