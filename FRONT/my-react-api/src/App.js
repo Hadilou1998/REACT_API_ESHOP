@@ -1,27 +1,33 @@
-import { BrowserRouter, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Register from './components/Register';
-import Login from './components/Login';
+import Footer from './components/Footer';
 import Home from './components/Home';
+import ProductList from './components/ProductList';
+import ProductDetails from './components/ProductDetails';
+import Cart from './components/Cart';
+import Checkout from './components/Checkout';
+import Login from './components/Login';
+import Register from './components/Register';
 
-function App()
-{
+function App() {
   return (
     <BrowserRouter>
-      <Switch>
-        <Routes>
-          <Route exact path='/'>
-            <Login/>
-          </Route>
-          <Route path='/register'>
-            <Register/>
-          </Route>
-          <Route path='/home'>
-            <Header/>
-            <Home/>
-          </Route>
-        </Routes>
-      </Switch>
+      <div className="App">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<ProductList />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }
