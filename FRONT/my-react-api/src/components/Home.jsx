@@ -1,37 +1,31 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
-/*import { useHistory } from "react-router-dom";*/
+import { useNavigate } from "react-router-dom";
 
-const Home = () =>
-{
+const Home = () => {
     const [username, setUsername] = useState('');
     const [token, setToken] = useState('');
     const [expire, setExpire] = useState('');
     const [users, setUsers] = useState([]);
-    /*const history = useHistory();*/
+    const navigate = useNavigate();
 
-    useEffect(() => 
-    {
+    useEffect(() => {
         refreshToken();
         getUsers();
     }, []);
 
-    const refreshToken = async () =>
-    {
-        try
-        {
+    const refreshToken = async () => {
+        try {
             const response = await axios.get("http://localhost:8080/token");
             setToken(response.data.accessToken);
+            const decoded = jwtDecode(response.data.accessToken);
             setUsername(decoded.username);
             setExpire(decoded.exp);
-        } 
-        catch (error)
-        {
-            if (error.response)
-            {
-                history.push("/");
-            } 
+        } catch (error) {
+            if (error.response) {
+                navigate("/");
+            }
         }
     }
 
@@ -44,24 +38,39 @@ const Home = () =>
             config.headers.Authorization = `Bearer ${response.data.accessToken}`;
             setToken(response.data.accessToken);
             const decoded = jwtDecode(response.data.accessToken);
-            setName(decoded.name);
+            setUsername(decoded.username);
             setExpire(decoded.exp);       
         }
         return config;
-    },
-    (error) =>
-    {
+    }, (error) => {
         return Promise.reject(error);
     });
 
-    const getUsers = async () = 
-    {
-        const response = await axiosJWT.get("http://localhost:8080/users", {
-            headers: {
-
-            }
-        })
+    const getUsers = async () => {
+        try {
+            const response = await axiosJWT.get("http://localhost:8080/users", {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            setUsers(response.data);
+        } catch (error) {
+            console.error("Error fetching users:", error);
+        }
     }
+
+    return (
+        <div>
+            <h1>Welcome, {username}!</h1>
+            <button onClick={() => navigate("/logout")}>Logout</button>
+            <h2>User List:</h2>
+            <ul>
+                {users.map((user, index) => (
+                    <li key={index}>{user.username}</li>
+                ))}
+            </ul>
+        </div>
+    );
 };
 
 export default Home;
