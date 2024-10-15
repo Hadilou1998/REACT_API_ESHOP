@@ -1,0 +1,146 @@
+[
+    {
+        "id": 1,
+        "name": "Victoria",
+        "description": "Baskets mixtes rétro en cuir blanc",
+        "price": 85.00,
+        "image": "assets/victoria-baskets-blanches-et-bleues-mixtes.jpg",
+        "currency": "€",
+        "clientId": 1
+    },
+    {
+        "id": 2,
+        "name": "Adidas",
+        "description": "Baskets adidas Originals Alphaboost v1",
+        "price": 111.49,
+        "image": "assets/adidas-originals_ig0160_1_footwear_photography_side_lateral_center_view_white.jpg",
+        "currency": "€",
+        "clientId": 1
+    },
+    {
+        "id": 3,
+        "name": "Nike",
+        "description": "Baskets nike air max excee noir",
+        "price": 110.00,
+        "image": "assets/baskets_nike_air_max_excee_noir.jpg",
+        "currency": "€",
+        "clientId": 2
+    },
+    {
+        "id": 4,
+        "name": "Adidas",
+        "description": "Baskets originals chaussure samba og",
+        "price": 120.00,
+        "image": "assets/adidas_originals_chaussure_samba_og.jpg",
+        "currency": "€",
+        "clientId": 2
+    },
+    {
+        "id": 5,
+        "name": "Nike",
+        "description": "Baskets nike p6000 metallic silver",
+        "price": 110.00,
+        "image": "assets/nike-p6000-metallic-silver-01.jpg",
+        "currency": "€",
+        "clientId": 3
+    },
+    {
+        "id": 6,
+        "name": "Nike",
+        "description": "Baskets nike air dunk jumbo mint foam",
+        "price": 120.00,
+        "image": "assets/Nike-Air-Dunk-Jumbo-Mint-Foam-700x500.jpg",
+        "currency": "€",
+        "clientId": 3
+    },
+    {
+        "id": 7,
+        "name": "Puma",
+        "description": "Baskets NOIR PUMA smash V2 SD",
+        "price": 53.99,
+        "image": "assets/baskets-noir-puma-smash-v2-sd.jpg",
+        "currency": "€",
+        "clientId": 4
+    },
+    {
+        "id": 8,
+        "name": "Adidas",
+        "description": "Chaussures adidas Sportswear ADVANTAGE",
+        "price": 63.80,
+        "image": "assets/adidas-advantage-sportswear.jpg",
+        "currency": "€",
+        "clientId": 4
+    },
+    {
+        "id": 9,
+        "name": "Converse",
+        "description": "Baskets mode femme Converse chuck taylor all star lift blanc",
+        "price": 89.90,
+        "image": "assets/baskets-converse-chuck-taylor-all-star-lift-blanc.jpg",
+        "currency": "€",
+        "clientId": 5
+    },
+    {
+        "id": 10,
+        "name": "Vans",
+        "description": "Vans SK8-HI Noir/Blanc",
+        "price": 72.00,
+        "image": "assets/vans-baskets-montantes-en-toile-ua-sk8-hi-noir-bla.jpg",
+        "currency": "€",
+        "clientId": 5
+    },
+    {
+        "id": 11,
+        "name": "Vans",
+        "description": "Vans Baskets Era Lacets Elastiqués Camouflage Vert Kaki",
+        "price": 40.00,
+        "image": "assets/baskets-era-lacets-elastiques-camouflage.jpg",
+        "currency": "€",
+        "clientId": 6
+    },
+    {
+        "id": 12,
+        "name": "Nike",
+        "description": "Nike Dunk Low Twist \"Panda\"",
+        "price": 120.00,
+        "image": "assets/nike-dunk-twist-panda-black-white-3.jpg",
+        "currency": "€",
+        "clientId": 6
+    },
+    {
+        "id": 13,
+        "name": "Adidas",
+        "description": "Adidas Originals Campus 00s dark green",
+        "price": 110.00,
+        "image": "assets/adidas_originals_campus_00s_dark_green.jpg",
+        "currency": "€",
+        "clientId": 7
+    },
+    {
+        "id": 14,
+        "name": "New Balance",
+        "description": "New Balance 2002R \"Phantom\"",
+        "price": 130.00,
+        "image": "assets/new-balance-2002r-phantom-m2002rho-banner.jpg",
+        "currency": "€",
+        "clientId": 7
+    },
+    {
+        "id": 15,
+        "name": "Converse",
+        "description": "Converse chuck taylor all star hi white",
+        "price": 60.00,
+        "image": "assets/converse-chuck-taylor-all-star-hi-white-50.jpg",
+        "currency": "€",
+        "clientId": 8
+    },
+    {
+        "id": 16,
+        "name": "New Balance",
+        "description": "New Balance 327",
+        "price": 130.00,
+        "image": "assets/new-balance-327.jpg",
+        "currency": "€",
+        "clientId": 8
+    }
+]

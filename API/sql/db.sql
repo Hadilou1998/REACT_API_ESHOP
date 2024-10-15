@@ -64,5 +64,4 @@ INSERT INTO Products VALUES
 (NULL   ,   'Adidas'        ,   'Adidas Originals Campus 00s dark green'                        ,   110.00  ,   'assets/adidas_originals_campus_00s_dark_green.jpg'                                         ,'€', 7),
 (NULL   ,   'New Balance'   ,   'New Balance 2002R "Phantom"'                                   ,   130.00  ,   'assets/new-balance-2002r-phantom-m2002rho-banner.jpg'                                      ,'€', 7),
 (NULL   ,   'Converse'      ,   'Converse chuck taylor all star hi white'                       ,   60.00   ,   'assets/converse-chuck-taylor-all-star-hi-white-50.jpg'                                     ,'€', 8),
-(NULL   ,   'New Balance'   ,   'New Balance 327'                                               ,   130.00  ,   'assets/new-balance-327.jpg'                                                                ,'€', 8);  
-                                                                                                                                                                                                    
+(NULL   ,   'New Balance'   ,   'New Balance 327'                                               ,   130.00  ,   'assets/new-balance-327.jpg'                                                                ,'€', 8);
