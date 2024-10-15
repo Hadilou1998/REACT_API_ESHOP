@@ -1,4 +1,4 @@
 # docker_entrypoint.sh for node.js
 
-echo "start node server"
+echo "start node"
 npm start
