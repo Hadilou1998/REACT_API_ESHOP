@@ -1,9 +1,8 @@
-version: '3.8'
+# version: '3.8'
 
 services:
   server:
-    build:
-      context: ./server
+    build: .
     restart: always
     ports:
       - 8080:8080
@@ -11,16 +10,17 @@ services:
       - db
   db:
     image: mysql:8.0.39
-    command: mysql -u root -ppassword
+    command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: supersaiyan
-      MYSQL_DATABASE: React_API
     volumes:
       - ./db/init:/docker-entrypoint-initdb.d
       - ./db/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: supersaiyan
+    networks:
+      - db-net
     ports:
       - 3000:8080 
 
-volumes:
-  db_data:
+networks:
+  db-net:

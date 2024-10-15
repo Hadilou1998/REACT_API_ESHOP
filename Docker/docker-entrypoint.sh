@@ -1,4 +1,4 @@
 # docker_entrypoint.sh for node.js
 
-echo "start node"
-npm start
+echo "Starting node.js server..."
+nodemon index.js
