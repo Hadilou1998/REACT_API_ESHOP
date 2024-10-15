@@ -9,3 +9,18 @@ services:
       - 8080:8080
     depends_on:
       - db
+  db:
+    image: mysql:8.0.39
+    command: mysql -u root -ppassword
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: supersaiyan
+      MYSQL_DATABASE: React_API
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d
+      - ./db/data:/var/lib/mysql
+    ports:
+      - 3000:8080
+
+volumes:
+  db_data:
